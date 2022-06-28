@@ -7,7 +7,7 @@ const MatrixContext = createContext();
 function MatrixProvider({ children }) {
   const defaultState = Array.from({ length: 7 }, () => [0, 0, 0, 0, 0, 0]);
 
-  const [matrix, setMatrix] = useState(defaultState);
+  const [matrix, setMatrix] = useState(JSON.parse(JSON.stringify(defaultState)));
 
   const cleanMatrix = () => {
     setMatrix(defaultState);
