@@ -40,23 +40,29 @@ function App() {
   };
 
   const checkMajorDiagonal = ([x, y]) => {
-    let i = 0;
+    let count = 0;
 
-    while ((x + i) <= 6 && (y + i) <= 5 && matrix[x + i][y + i] === gameTurn) {
-      i++;
+    for (let i = 0; (x + i) <= 6 && (y + i) <= 5 && matrix[x + i][y + i] === gameTurn; i++) {
+      count++;
+    }
+    for (let i = 1; (x - i) >= 0 && (y - i) >= 0 && matrix[x - i][y - i] === gameTurn; i++) {
+      count++;
     }
 
-    return i >= 4;
+    return count >= 4;
   };
 
   const checkMinorDiagonal = ([x, y]) => {
-    let i = 0;
+    let count = 0;
 
-    while ((x - i) >= 0 && (y + i) <= 5 && matrix[x - i][y + i] === gameTurn) {
-      i++;
+    for (let i = 0; (x - i) >= 0 && (y + i) <= 5 && matrix[x - i][y + i] === gameTurn; i++) {
+      count++;
+    }
+    for (let i = 1; (x + i) <= 6 && (y - i) >= 0 && matrix[x + i][y - i] === gameTurn; i++) {
+      count++;
     }
 
-    return i >= 4;
+    return count >= 4;
   };
 
   const checkVictory = (newPiece) => (
