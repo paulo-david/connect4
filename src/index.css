@@ -27,10 +27,10 @@ html, body {
 }
 
 .App {
-  height: 100vh;
+  height: 90vh;
 }
 
-html, body, ul{
+html, body{
 
   padding: 0;
   margin: 0;

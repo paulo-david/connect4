@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
+const colors = {
+  1: 'var(--green)',
+  2: 'var(--blue700)',
+};
+
 const Container = styled.ul`
 
   height: 80%; 
-  /* altura na verdade vai ser fit-content ( pois o tabuleiro sempre estará preenchido) */
-  width: 10%;
+  width: 8%;
 
   display: flex;
   flex-direction: column;
@@ -12,12 +16,14 @@ const Container = styled.ul`
   justify-content: space-evenly;
 
   background-color: var(--blue500);
-  border-radius: 15px;
 
+  padding: 0;
+  border: 8px solid var(--blue500);
+  border-radius: 15px;
 
   :hover {
     transition: 0.4s;
-    background-color: var(--blue800);
+    border: 8px solid ${(props) => (props.colorTurn ? colors[props.colorTurn] : 'inhereit')};
   }
 `;
 
